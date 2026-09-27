@@ -1,0 +1,15 @@
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+dist/
+.git/
+.gitignore
+.github/
+powershell.bat
+inquiries.json
+test_app.py
