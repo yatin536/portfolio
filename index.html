@@ -10,7 +10,7 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="Yatin Kumar Singh | Senior Data Engineer">
-  <meta property="og:description" content="Data Engineer with 3.5+ years of experience designing, building, and optimizing scalable data pipelines and analytics solutions. Strong expertise in AWS big data services (Athena, Glue ETL, Kinesis, S3), Databricks &amp; PySpark distributed processing, Snowflake data warehousing, and SQL optimization, enabling real-time streaming, high-throughput batch ETL, and reliable business intelligence.">
+  <meta property="og:description" content="Data Engineer with 3.5+ years of experience designing, building, and optimizing scalable cloud data pipelines, real-time streaming architectures, and multi-tenant data warehouses. Strong expertise in AWS Data Engineering (Kinesis, S3, Athena, Glue ETL), Databricks &amp; PySpark distributed processing, Snowflake multi-warehouse management, advanced SQL query &amp; stored procedure optimization (execution plan analysis), and foundational Azure Storage integration.">
   <meta property="og:type" content="website">
 
   <!-- Google Fonts -->
@@ -108,7 +108,7 @@
           </div>
 
           <p class="hero-summary">
-            Data Engineer with 3.5+ years of experience designing, building, and optimizing scalable data pipelines and analytics solutions. Strong expertise in AWS big data services (Athena, Glue ETL, Kinesis, S3), Databricks &amp; PySpark distributed processing, Snowflake data warehousing, and SQL optimization, enabling real-time streaming, high-throughput batch ETL, and reliable business intelligence.
+            Data Engineer with 3.5+ years of experience designing, building, and optimizing scalable cloud data pipelines, real-time streaming architectures, and multi-tenant data warehouses. Strong expertise in AWS Data Engineering (Kinesis, S3, Athena, Glue ETL), Databricks &amp; PySpark distributed processing, Snowflake multi-warehouse management, advanced SQL query &amp; stored procedure optimization (execution plan analysis), and foundational Azure Storage integration.
           </p>
 
           <div class="hero-cta-group">
@@ -174,35 +174,35 @@
               <span class="dot dot-yellow"></span>
               <span class="dot dot-green"></span>
             </div>
-            <div class="terminal-title">kinesis_databricks_pipeline.py</div>
+            <div class="terminal-title">ge_vernova_cashflow_kinesis.py</div>
             <div style="width: 30px"></div>
           </div>
           <div class="terminal-body">
-<pre><code><span class="c-com"># Production AWS Kinesis & Databricks PySpark Pipeline</span>
+<pre><code><span class="c-com"># GE Vernova Cash Flow Automation • AWS Data Engg</span>
 <span class="c-kw">from</span> pyspark.sql <span class="c-kw">import</span> SparkSession, functions <span class="c-kw">as</span> F
 
 <span class="c-var">spark</span> = SparkSession.builder \
-    .appName(<span class="c-str">"AWSKinesisDatabricksPipeline"</span>) \
+    .appName(<span class="c-str">"GE_Vernova_CashFlow_Engine"</span>) \
     .config(<span class="c-str">"spark.sql.shuffle.partitions"</span>, <span class="c-num">200</span>) \
     .getOrCreate()
 
-<span class="c-com"># 1. Ingest streaming delta from AWS Kinesis & S3 Data Lake</span>
+<span class="c-com"># 1. Ingest streaming financial events via AWS Kinesis</span>
 <span class="c-var">stream_df</span> = spark.readStream.format(<span class="c-str">"kinesis"</span>) \
-    .option(<span class="c-str">"streamName"</span>, <span class="c-str">"analytics-event-stream"</span>) \
+    .option(<span class="c-str">"streamName"</span>, <span class="c-str">"ge-vernova-cashflow-stream"</span>) \
     .option(<span class="c-str">"region"</span>, <span class="c-str">"us-east-1"</span>).load()
 
-<span class="c-com"># 2. Databricks PySpark distributed cleansing & Delta format</span>
+<span class="c-com"># 2. Stage into Amazon S3 Data Lake & PySpark reconciliation</span>
 <span class="c-var">curated_df</span> = stream_df \
-    .repartition(<span class="c-str">"partition_date"</span>) \
-    .withColumn(<span class="c-str">"eff_start_date"</span>, F.current_timestamp())
+    .repartition(<span class="c-str">"cashflow_date"</span>) \
+    .withColumn(<span class="c-str">"reconciled_at"</span>, F.current_timestamp())
 
-<span class="c-com"># 3. Micro-partition load into Snowflake & Athena catalog</span>
+<span class="c-com"># 3. Load into multi-team Snowflake warehouse & query via Athena</span>
 <span class="c-var">curated_df</span>.write.format(<span class="c-str">"snowflake"</span>) \
-    .option(<span class="c-str">"sfWarehouse"</span>, <span class="c-str">"ANALYTICS_WH_XL"</span>) \
-    .option(<span class="c-str">"clustering_key"</span>, <span class="c-str">"(region_id, event_date)"</span>) \
+    .option(<span class="c-str">"sfWarehouse"</span>, <span class="c-str">"FINANCE_CASHFLOW_WH"</span>) \
+    .option(<span class="c-str">"clustering_key"</span>, <span class="c-str">"(entity_id, cashflow_date)"</span>) \
     .mode(<span class="c-str">"append"</span>).save()
 
-<span class="c-fn">print</span>(<span class="c-str">"[SUCCESS] Real-time stream processed with 0 errors"</span>)</code></pre>
+<span class="c-fn">print</span>(<span class="c-str">"[SUCCESS] Real-time cash flow ingested to S3 Lake & Snowflake"</span>)</code></pre>
           </div>
         </div>
       </div>
@@ -223,31 +223,31 @@
         <div class="metric-card">
           <div class="metric-val">50+</div>
           <div class="metric-lbl">Optimized SQL Workloads</div>
-          <div class="metric-sub">Views, Procedures &amp; CTEs</div>
+          <div class="metric-sub">Stored Procs, Views &amp; Execution Plans</div>
         </div>
         
         <div class="metric-card">
           <div class="metric-val">90%</div>
           <div class="metric-lbl">Manual Effort Reduced</div>
-          <div class="metric-sub">Automated SCD I &amp; II Workflows</div>
+          <div class="metric-sub">Automated SCD I &amp; II Pipelines</div>
         </div>
         
         <div class="metric-card">
           <div class="metric-val">30%</div>
           <div class="metric-lbl">Performance Boost</div>
-          <div class="metric-sub">Databricks &amp; PySpark Pipelines</div>
+          <div class="metric-sub">Databricks &amp; PySpark Workloads</div>
         </div>
         
         <div class="metric-card">
-          <div class="metric-val">25%</div>
+          <div class="metric-val">25-30%</div>
           <div class="metric-lbl">Query Latency Reduction</div>
-          <div class="metric-sub">Snowflake &amp; Athena Optimization</div>
+          <div class="metric-sub">SQL &amp; Dashboard Optimization</div>
         </div>
         
         <div class="metric-card">
-          <div class="metric-val">95-99%</div>
-          <div class="metric-lbl">Reporting Accuracy</div>
-          <div class="metric-sub">Delivered across BI Dashboards</div>
+          <div class="metric-val">100%</div>
+          <div class="metric-lbl">Reconciliation Accuracy</div>
+          <div class="metric-sub">Cash Flow &amp; Reporting Automation</div>
         </div>
         
       </div>
@@ -272,10 +272,10 @@
 
       <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 36px; backdrop-filter: blur(12px);">
         <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 24px;">
-          I am a Senior Data Engineer specializing in building scalable real-time streaming and high-throughput batch data architectures. Over the last 3.5+ years across enterprise environments including Accenture, Syven Global Services, and Acidaes Solutions, I have focused heavily on the AWS big data ecosystem—leveraging AWS Kinesis for real-time streaming data ingestion, AWS Glue ETL for serverless Spark transformations, Amazon Athena for fast interactive SQL queries over S3 data lakes, and Amazon S3 for resilient data lake storage.
+          I am a Senior Data Engineer specializing in building scalable real-time streaming, high-throughput batch data architectures, and optimized data warehousing solutions. In my current role at Accenture, I work within the Agentic AI team for Client GE Vernova, architecting AWS Data Engineering pipelines for automating the enterprise Cash Flow application—ingesting multi-source financial and operational data using AWS Kinesis for real-time streaming, Amazon S3 as a centralized data lake, and Python/PySpark for automated transformations.
         </p>
         <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text-secondary);">
-          I have a strong hold over Databricks and PySpark, designing memory-optimized distributed processing pipelines that cut compute runtimes by 30%. In addition, I bring deep expertise in Snowflake data warehousing (clustering keys, micro-partitioning, and automated SCD Type I &amp; II change data capture), advanced SQL tuning (reducing query latencies by 25-30%), and foundational experience with Azure Storage Accounts and connecting Azure storage layers to Databricks for unified storage solutions.
+          Previously at Syven Global Services, I delivered on two core enterprise projects: for Client Lazard Inc., I created and managed end-to-end data ingestion pipelines, managed multiple Snowflake virtual warehouses across diverse business teams to isolate compute and eliminate contention, and built distributed Databricks ETL pipelines with PySpark (connecting Azure Storage to Databricks). On the Student Housing Dashboards project, I significantly accelerated dashboard performance by analyzing SQL Stored Procedures, examining query execution plans to eliminate bottlenecks, and writing Python scripts to automate stored procedure outputs. My overall technical expertise is firmly grounded in Python, SQL, PySpark, Snowflake, AWS Data Engineering, Databricks, and Azure Storage solutions.
         </p>
       </div>
     </div>
@@ -305,7 +305,7 @@
           
           <div class="pipeline-step-node " data-step="1">
             <div class="step-num">02. CATALOG &amp; VALIDATE</div>
-            <div class="step-name">Quality</div>
+            <div class="step-name">Schema</div>
           </div>
           
           <div class="pipeline-step-node " data-step="2">
@@ -314,22 +314,22 @@
           </div>
           
           <div class="pipeline-step-node " data-step="3">
-            <div class="step-num">04. ORCHESTRATE</div>
-            <div class="step-name">Workflow</div>
+            <div class="step-num">04. WAREHOUSE</div>
+            <div class="step-name">Multi-Warehouse</div>
           </div>
           
           <div class="pipeline-step-node " data-step="4">
-            <div class="step-num">05. SERVE</div>
-            <div class="step-name">Serverless</div>
+            <div class="step-num">05. OPTIMIZE &amp; SERVE</div>
+            <div class="step-name">SQL</div>
           </div>
           
         </div>
 
         <div class="pipeline-detail-card" id="pipeline-detail-card">
           <div class="pipeline-detail-info">
-            <h4 id="pipeline-stage-title">01. INGEST Real-Time &amp; Batch Ingestion</h4>
-            <p id="pipeline-stage-desc">Ingesting high-velocity event streams via AWS Kinesis and batch files into Amazon S3 data lakes and Azure Storage Accounts.</p>
-            <div class="pipeline-tech-tag" id="pipeline-stage-tech">AWS Kinesis, Amazon S3, Azure Storage Accounts, REST APIs, Python</div>
+            <h4 id="pipeline-stage-title">01. INGEST Real-Time &amp; Multi-Source Ingestion</h4>
+            <p id="pipeline-stage-desc">Ingesting high-velocity transactional and cash flow event streams via AWS Kinesis and multi-source feeds into an Amazon S3 centralized data lake.</p>
+            <div class="pipeline-tech-tag" id="pipeline-stage-tech">AWS Kinesis, Amazon S3, Python Ingestion Scripts, REST APIs</div>
           </div>
           <div class="pipeline-metric-pill" id="pipeline-stage-metric">
             Ingestion error rate reduced to near zero
@@ -380,45 +380,53 @@
               <span>Gurugram, Haryana, India</span>
             </div>
 
-            <p class="exp-summary">Driving cloud data engineering initiatives with emphasis on AWS data lakes (S3, Athena, Glue), Databricks PySpark workloads, and Snowflake.</p>
+            <p class="exp-summary">Working in the Agentic AI team for Client GE Vernova, architecting AWS Data Engineering pipelines for Cash Flow application automation.</p>
 
-            <ul class="exp-bullets">
+            
               
-              <li>Contributing to enterprise-scale cloud data engineering initiatives and modern analytical environments.</li>
+              <div class="exp-project-block" style="margin-top: 14px; margin-bottom: 8px;">
+                <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px; flex-wrap: wrap;">
+                  <strong style="color: var(--accent-cyan); font-size: 0.95rem;">Agentic AI Team — Automating Cash Flow Application</strong>
+                  <span style="font-size: 0.82rem; color: var(--text-muted);">(Client: GE Vernova • AWS Data Engineering &amp; Real-Time Streaming)</span>
+                </div>
+                <ul class="exp-bullets">
+                  
+                  <li>Spearheading AWS Data Engineering architecture for GE Vernova within the Agentic AI team to automate financial Cash Flow operations and analytics.</li>
+                  
+                  <li>Engineered real-time data ingestion pipelines using AWS Kinesis Data Streams to ingest multi-source transactional, ERP, and cash flow events continuously into an Amazon S3 data lake.</li>
+                  
+                  <li>Designed Amazon S3 data lake storage hierarchy with partitioned raw, staging, and curated zones, ensuring optimal parquet storage and high data availability.</li>
+                  
+                  <li>Developing modular Python and PySpark workflows to parse, cleanse, and normalize financial records, feeding downstream agentic AI inference and cash flow forecasting models.</li>
+                  
+                  <li>Employed AWS Athena and AWS Glue Data Catalog for serverless schema discovery, executing ad-hoc and automated SQL queries over S3 data lake tables.</li>
+                  
+                  <li>Constructed optimized SQL queries, financial aggregations, and automated validation scripts, guaranteeing 100% reconciliation and data consistency across financial reporting.</li>
+                  
+                </ul>
+              </div>
               
-              <li>Building and optimizing AWS-based data engineering workflows, including Amazon S3 data ingestion, AWS Glue ETL jobs, and interactive Athena querying.</li>
-              
-              <li>Developing distributed PySpark pipelines on Databricks for high-throughput batch transformations and stream enrichment.</li>
-              
-              <li>Architecting high-performance SQL and Python workflows for data querying, transformation, automated validation, and data-processing activities.</li>
-              
-              <li>Configuring cloud storage integrations, connecting Azure Storage Accounts to Databricks for unified lakehouse storage solutions.</li>
-              
-              <li>Strengthening production architectures across Snowflake virtual warehouses, clustering keys, AWS services, and modern big data ecosystems.</li>
-              
-              <li>Enforcing engineering best practices around Git version control, testing frameworks, comprehensive technical documentation, and cross-functional agile delivery.</li>
-              
-            </ul>
+            
 
             <div class="exp-tags">
               
-              <span class="tag">AWS S3</span>
+              <span class="tag">AWS Kinesis</span>
+              
+              <span class="tag">Amazon S3</span>
               
               <span class="tag">AWS Athena</span>
               
               <span class="tag">AWS Glue ETL</span>
               
-              <span class="tag">Databricks</span>
-              
               <span class="tag">PySpark</span>
-              
-              <span class="tag">Snowflake</span>
               
               <span class="tag">Python</span>
               
               <span class="tag">SQL</span>
               
-              <span class="tag">Azure Storage</span>
+              <span class="tag">Agentic AI</span>
+              
+              <span class="tag">GE Vernova</span>
               
             </div>
           </div>
@@ -448,43 +456,51 @@
               <span>Noida, Uttar Pradesh, India</span>
             </div>
 
-            <p class="exp-summary">Engineered real-time streaming with AWS Kinesis, serverless data lake querying with Athena, distributed PySpark pipelines on Databricks, and Snowflake warehouses.</p>
+            <p class="exp-summary">Delivered two enterprise client initiatives: multi-warehouse data ingestion and Databricks ETL for Lazard Inc., and SQL Stored Procedure performance tuning for Student Housing Dashboards.</p>
 
-            <ul class="exp-bullets">
+            
               
-              <li>Implemented real-time streaming data ingestion pipelines using AWS Kinesis, streaming event datasets reliably into Amazon S3 storage layers.</li>
+              <div class="exp-project-block" style="margin-top: 14px; margin-bottom: 8px;">
+                <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px; flex-wrap: wrap;">
+                  <strong style="color: var(--accent-cyan); font-size: 0.95rem;">Project 1: Data Ingestion &amp; Multi-Warehouse Management</strong>
+                  <span style="font-size: 0.82rem; color: var(--text-muted);">(Client: Lazard Inc. • Databricks ETL &amp; Snowflake Warehousing)</span>
+                </div>
+                <ul class="exp-bullets">
+                  
+                  <li>Created and managed end-to-end data ingestion pipelines integrating multiple cross-organizational data sources across business teams at Lazard Inc.</li>
+                  
+                  <li>Configured and managed multiple Snowflake virtual warehouses to isolate compute workloads across distinct Lazard teams, eliminating query contention and reducing compute costs.</li>
+                  
+                  <li>Built robust, distributed ETL pipelines using Databricks and PySpark, processing and transforming multi-departmental datasets into curated analytical models.</li>
+                  
+                  <li>Engineered automated Slowly Changing Dimensions (SCD Type I &amp; II) using Snowflake SQL and MERGE statements, slashing manual data maintenance effort by 90%.</li>
+                  
+                  <li>Connected Azure Storage Accounts to Databricks to mount cloud storage containers, enabling reliable hybrid cloud data ingestion.</li>
+                  
+                </ul>
+              </div>
               
-              <li>Leveraged AWS Athena and Glue Data Catalog to execute ad-hoc and scheduled analytical queries directly over large S3 data lakes with sub-minute response times.</li>
+              <div class="exp-project-block" style="margin-top: 14px; margin-bottom: 8px;">
+                <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px; flex-wrap: wrap;">
+                  <strong style="color: var(--accent-cyan); font-size: 0.95rem;">Project 2: Student Housing Dashboards</strong>
+                  <span style="font-size: 0.82rem; color: var(--text-muted);">(Dashboard Performance Optimization &amp; SQL Stored Procedures)</span>
+                </div>
+                <ul class="exp-bullets">
+                  
+                  <li>Significantly boosted dashboard performance and data refresh speeds across Student Housing Dashboards by auditing and refactoring SQL Stored Procedures.</li>
+                  
+                  <li>Analyzed multiple SQL Execution Plans to pinpoint performance bottlenecks, eliminate expensive full-table scans, and optimize indexing structures.</li>
+                  
+                  <li>Developed modular Python scripts to capture, parse, and automate the handling of outputs from SQL stored procedures for downstream analytics and reporting.</li>
+                  
+                  <li>Restructured complex analytical queries, views, and CTEs, achieving a 25–30% reduction in query latency and ensuring sub-second metric refreshes.</li>
+                  
+                </ul>
+              </div>
               
-              <li>Developed distributed PySpark pipelines on Databricks for processing large-scale structured and semi-structured datasets, utilizing custom partitioning, broadcast joins, and incremental processing to boost transformation performance by ~30%.</li>
-              
-              <li>Connected Azure Storage Accounts to Databricks to mount remote storage containers and support hybrid cloud data ingestion workflows.</li>
-              
-              <li>Designed and managed Snowflake data warehouses across multiple business domains, configuring purpose-fit virtual warehouses to isolate and accelerate analytical workloads.</li>
-              
-              <li>Implemented Snowflake clustering keys and query optimization techniques on massive multi-million row datasets, reducing query execution times by approximately 25%.</li>
-              
-              <li>Engineered automated Slowly Changing Dimension (SCD Type I and Type II) processing for millions of historical records, automating change data capture and slashing manual intervention by ~90%.</li>
-              
-              <li>Developed and optimized 50+ complex SQL queries, views, functions, stored procedures, and triggers, supporting reporting and analytical workloads for 20+ users.</li>
-              
-              <li>Authored modular Python scripts for API data cleansing, schema validation, and pruning, improving dataset quality by ~25% and reducing downstream ingestion errors to near zero.</li>
-              
-              <li>Built and maintained scheduled data workflows using Apache Airflow, ensuring high availability and reliable execution of recurring data-processing pipelines.</li>
-              
-              <li>Designed and delivered weekly, monthly, and yearly performance dashboards using advanced dimensional modeling, supporting 10+ stakeholders with 95–99% reporting accuracy.</li>
-              
-            </ul>
+            
 
             <div class="exp-tags">
-              
-              <span class="tag">AWS Kinesis</span>
-              
-              <span class="tag">AWS Athena</span>
-              
-              <span class="tag">AWS Glue ETL</span>
-              
-              <span class="tag">AWS S3</span>
               
               <span class="tag">Databricks</span>
               
@@ -492,13 +508,17 @@
               
               <span class="tag">Snowflake</span>
               
-              <span class="tag">SCD I &amp; II</span>
+              <span class="tag">SQL Stored Procedures</span>
+              
+              <span class="tag">Execution Plans</span>
               
               <span class="tag">Python</span>
               
-              <span class="tag">Airflow</span>
-              
               <span class="tag">Azure Storage</span>
+              
+              <span class="tag">Lazard Inc.</span>
+              
+              <span class="tag">SCD I &amp; II</span>
               
             </div>
           </div>
@@ -528,23 +548,23 @@
               <span>Noida, Uttar Pradesh, India</span>
             </div>
 
-            <p class="exp-summary">Specialized in relational database performance tuning, SQL Server stored procedure optimization, and automated Pentaho ETL data pipelines.</p>
+            <p class="exp-summary">Specialized in relational database performance tuning, SQL Server stored procedure optimization, execution plan analysis, and Python automation.</p>
 
-            <ul class="exp-bullets">
-              
-              <li>Engineered and optimized Microsoft SQL Server queries, stored procedures, Common Table Expressions (CTEs), views, and database objects, lifting query performance by up to 30% across reporting and application workloads.</li>
-              
-              <li>Optimized resource-heavy SQL workloads using CTEs, correlated subqueries, selective indexing, and filtering techniques, reducing execution times by ~25% for high-frequency queries.</li>
-              
-              <li>Created Python automation scripts for data cleansing, validation, and format normalization, reducing manual data-handling workloads by approximately 15%.</li>
-              
-              <li>Developed and maintained Pentaho Data Integration (PDI) ETL workflows integrating data from CSV, Excel, flat files, and relational databases, improving end-to-end processing efficiency by ~40%.</li>
-              
-              <li>Conducted rigorous data profiling, boundary testing, and reconciliation checks across source datasets, safeguarding near-perfect data accuracy for analytics consumers.</li>
-              
-              <li>Configured dynamic parameters, filters, and aggregations for analytical reporting layers, enhancing report usability and boosting stakeholder satisfaction by ~20%.</li>
-              
-            </ul>
+            
+              <ul class="exp-bullets">
+                
+                <li>Engineered and optimized Microsoft SQL Server queries, stored procedures, Common Table Expressions (CTEs), and views, boosting execution performance by ~25-30%.</li>
+                
+                <li>Analyzed SQL execution plans to identify bottlenecks, eliminate full-table scans, and optimize index utilization across transactional tables.</li>
+                
+                <li>Created modular Python automation scripts for data cleansing, validation, and format normalization, reducing manual data handling by 15%.</li>
+                
+                <li>Conducted data profiling, schema validation, and reconciliation checks to safeguard data accuracy across operational reporting systems.</li>
+                
+                <li>Configured dynamic SQL parameters, filters, and aggregations for reporting layers, boosting query responsiveness.</li>
+                
+              </ul>
+            
 
             <div class="exp-tags">
               
@@ -552,17 +572,15 @@
               
               <span class="tag">T-SQL</span>
               
-              <span class="tag">Pentaho PDI</span>
+              <span class="tag">Stored Procedures</span>
+              
+              <span class="tag">Execution Plans</span>
               
               <span class="tag">Python</span>
               
-              <span class="tag">Data Profiling</span>
-              
-              <span class="tag">ETL Pipelines</span>
-              
               <span class="tag">Query Optimization</span>
               
-              <span class="tag">Reporting</span>
+              <span class="tag">Data Profiling</span>
               
             </div>
           </div>
@@ -589,39 +607,40 @@
       </p>
 
       <div class="projects-filter-bar">
-        <button class="filter-btn active" data-filter="all">All Disciplines</button>
-        <button class="filter-btn" data-filter="AWS & Streaming">AWS & Streaming</button>
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="AWS Data Engg">AWS Data Engg</button>
         <button class="filter-btn" data-filter="Databricks & PySpark">Databricks & PySpark</button>
-        <button class="filter-btn" data-filter="Data Modeling">Data Modeling</button>
         <button class="filter-btn" data-filter="SQL Optimization">SQL Optimization</button>
+        <button class="filter-btn" data-filter="Snowflake & Warehousing">Snowflake & Warehousing</button>
+        <button class="filter-btn" data-filter="Python Automation">Python Automation</button>
       </div>
 
       <div class="projects-grid">
         
-        <div class="project-card" data-category="AWS &amp; Streaming">
+        <div class="project-card" data-category="AWS Data Engg">
           <div>
-            <div class="project-category">AWS &amp; Streaming</div>
-            <h3 class="project-title">Real-Time Streaming &amp; Lakehouse Pipeline</h3>
-            <div class="project-subtitle">AWS Kinesis Data Streams • S3 Data Lake • Athena Serverless</div>
-            <p class="project-desc">Designed and implemented an end-to-end real-time streaming pipeline using AWS Kinesis Data Streams to capture continuous API events and transactional logs. Ingests data into Amazon S3 raw buckets, formats into partitioned Parquet, and exposes datasets via AWS Glue Data Catalog and AWS Athena for near-instantaneous SQL analytics.</p>
+            <div class="project-category">AWS Data Engg</div>
+            <h3 class="project-title">GE Vernova - Cash Flow Automation Platform</h3>
+            <div class="project-subtitle">Client: GE Vernova • Agentic AI Team • AWS Kinesis • S3 Data Lake</div>
+            <p class="project-desc">Architected real-time streaming and ingestion pipelines for GE Vernova&#39;s Agentic AI initiative to automate enterprise Cash Flow calculations. Ingests high-velocity financial streams via AWS Kinesis into an Amazon S3 Data Lake, using Athena for serverless SQL querying and Python/PySpark for automated transformations and financial reconciliation.</p>
           </div>
 
           <div class="project-footer">
             <div class="project-metrics-row">
               
               <div class="proj-metric-item">
-                <div class="proj-metric-val">Sub-Second Ingestion</div>
-                <div class="proj-metric-lbl">Latency</div>
-              </div>
-              
-              <div class="proj-metric-item">
-                <div class="proj-metric-val">AWS Athena</div>
-                <div class="proj-metric-lbl">Query Engine</div>
-              </div>
-              
-              <div class="proj-metric-item">
                 <div class="proj-metric-val">AWS Kinesis</div>
-                <div class="proj-metric-lbl">Streaming Source</div>
+                <div class="proj-metric-lbl">Streaming Engine</div>
+              </div>
+              
+              <div class="proj-metric-item">
+                <div class="proj-metric-val">Amazon S3</div>
+                <div class="proj-metric-lbl">Data Lake</div>
+              </div>
+              
+              <div class="proj-metric-item">
+                <div class="proj-metric-val">100% Accuracy</div>
+                <div class="proj-metric-lbl">Reconciliation</div>
               </div>
               
             </div>
@@ -630,15 +649,17 @@
               
               <span class="tag">AWS Kinesis</span>
               
+              <span class="tag">Amazon S3</span>
+              
               <span class="tag">AWS Athena</span>
               
               <span class="tag">AWS Glue</span>
               
-              <span class="tag">Amazon S3</span>
-              
-              <span class="tag">Parquet</span>
-              
               <span class="tag">Python</span>
+              
+              <span class="tag">PySpark</span>
+              
+              <span class="tag">SQL</span>
               
             </div>
           </div>
@@ -647,9 +668,9 @@
         <div class="project-card" data-category="Databricks &amp; PySpark">
           <div>
             <div class="project-category">Databricks &amp; PySpark</div>
-            <h3 class="project-title">High-Performance Databricks &amp; PySpark Engine</h3>
-            <div class="project-subtitle">Distributed Processing with Cloud Storage Integration</div>
-            <p class="project-desc">Engineered distributed PySpark ETL pipelines on Databricks to transform multi-million record datasets. Mounted and connected Azure Storage Accounts (ADLS Gen2) and AWS S3 buckets to Databricks workspace. Applied custom column partitioning, broadcast hash joins, and memory caching, achieving a 30% reduction in job runtime.</p>
+            <h3 class="project-title">Lazard Inc. - Multi-Warehouse &amp; Databricks Ingestion</h3>
+            <div class="project-subtitle">Client: Lazard Inc. • Databricks PySpark • Snowflake Multi-Warehouse</div>
+            <p class="project-desc">Created and managed end-to-end data ingestion pipelines and dedicated Snowflake virtual warehouses across diverse business teams at Lazard Inc. Built distributed PySpark ETL pipelines on Databricks to transform multi-departmental datasets, connecting Azure Storage Accounts to Databricks for unified lakehouse storage.</p>
           </div>
 
           <div class="project-footer">
@@ -661,13 +682,13 @@
               </div>
               
               <div class="proj-metric-item">
-                <div class="proj-metric-val">Azure &amp; AWS S3</div>
-                <div class="proj-metric-lbl">Storage Integration</div>
+                <div class="proj-metric-val">Multi-Warehouse</div>
+                <div class="proj-metric-lbl">Warehousing</div>
               </div>
               
               <div class="proj-metric-item">
-                <div class="proj-metric-val">Millions of Records</div>
-                <div class="proj-metric-lbl">Scale</div>
+                <div class="proj-metric-val">Azure &amp; Databricks</div>
+                <div class="proj-metric-lbl">Storage Integration</div>
               </div>
               
             </div>
@@ -678,103 +699,13 @@
               
               <span class="tag">PySpark</span>
               
-              <span class="tag">Delta Lake</span>
+              <span class="tag">Snowflake</span>
               
               <span class="tag">Azure Storage</span>
               
-              <span class="tag">AWS S3</span>
-              
-              <span class="tag">Airflow</span>
-              
-            </div>
-          </div>
-        </div>
-        
-        <div class="project-card" data-category="AWS &amp; Streaming">
-          <div>
-            <div class="project-category">AWS &amp; Streaming</div>
-            <h3 class="project-title">Serverless AWS Glue ETL &amp; Snowflake Warehouse</h3>
-            <div class="project-subtitle">Serverless Data Catalog, Crawlers &amp; Departmental Warehouses</div>
-            <p class="project-desc">Built automated serverless ETL jobs using AWS Glue ETL and Glue Crawlers to catalog and transform raw data from Amazon S3. Ingested curated datasets into Snowflake virtual warehouses with clustering keys to optimize analytical reporting queries for multiple business departments without resource contention.</p>
-          </div>
-
-          <div class="project-footer">
-            <div class="project-metrics-row">
-              
-              <div class="proj-metric-item">
-                <div class="proj-metric-val">-25% Faster</div>
-                <div class="proj-metric-lbl">Query Latency</div>
-              </div>
-              
-              <div class="proj-metric-item">
-                <div class="proj-metric-val">Serverless Spark</div>
-                <div class="proj-metric-lbl">ETL Architecture</div>
-              </div>
-              
-              <div class="proj-metric-item">
-                <div class="proj-metric-val">AWS Glue Catalog</div>
-                <div class="proj-metric-lbl">Cataloging</div>
-              </div>
-              
-            </div>
-
-            <div class="exp-tags">
-              
-              <span class="tag">AWS Glue ETL</span>
-              
-              <span class="tag">AWS S3</span>
-              
-              <span class="tag">Snowflake</span>
-              
-              <span class="tag">Clustering Keys</span>
+              <span class="tag">Python</span>
               
               <span class="tag">SQL</span>
-              
-              <span class="tag">Python</span>
-              
-            </div>
-          </div>
-        </div>
-        
-        <div class="project-card" data-category="Data Modeling">
-          <div>
-            <div class="project-category">Data Modeling</div>
-            <h3 class="project-title">Automated SCD Type I &amp; II Change Data Platform</h3>
-            <div class="project-subtitle">Historical Record Versioning &amp; Audit Reconciliation</div>
-            <p class="project-desc">Designed and deployed an automated Slowly Changing Dimension (SCD Type I and II) processing framework for dimensional tables containing millions of records. Utilized Snowflake MERGE semantics, effective date stamping (`start_date`, `end_date`, `is_current`), and surrogate key generation, reducing manual developer overhead by 90%.</p>
-          </div>
-
-          <div class="project-footer">
-            <div class="project-metrics-row">
-              
-              <div class="proj-metric-item">
-                <div class="proj-metric-val">-90% Reduced</div>
-                <div class="proj-metric-lbl">Manual Work</div>
-              </div>
-              
-              <div class="proj-metric-item">
-                <div class="proj-metric-val">100%</div>
-                <div class="proj-metric-lbl">Audit Traceability</div>
-              </div>
-              
-              <div class="proj-metric-item">
-                <div class="proj-metric-val">SCD Type I &amp; II</div>
-                <div class="proj-metric-lbl">Processing Type</div>
-              </div>
-              
-            </div>
-
-            <div class="exp-tags">
-              
-              <span class="tag">Snowflake SQL</span>
-              
-              <span class="tag">Python</span>
-              
-              <span class="tag">MERGE Logic</span>
-              
-              <span class="tag">Dimensional Modeling</span>
-              
-              <span class="tag">Data Auditing</span>
               
             </div>
           </div>
@@ -783,9 +714,9 @@
         <div class="project-card" data-category="SQL Optimization">
           <div>
             <div class="project-category">SQL Optimization</div>
-            <h3 class="project-title">High-Impact SQL &amp; Serverless Query Optimization</h3>
-            <div class="project-subtitle">Refactoring Athena Queries, Snowflake Clustering &amp; Stored Procs</div>
-            <p class="project-desc">Audited and optimized over 50+ mission-critical queries, views, stored procedures, and triggers across AWS Athena, Snowflake, and SQL Server. Restructured joins, eliminated full partition scans using S3 date keys, and tuned Snowflake clustering keys, cutting query latency by 25–30%.</p>
+            <h3 class="project-title">Student Housing - Dashboard Performance &amp; SQL SP Tuning</h3>
+            <div class="project-subtitle">SQL Stored Procedures • Execution Plan Analysis • Python SP Output Handler</div>
+            <p class="project-desc">Dramatically improved dashboard performance for Student Housing analytics by analyzing SQL Stored Procedures and examining multiple query Execution Plans. Produced modular Python scripts to parse and handle outputs from stored procedures, eliminating bottlenecks and slashing dashboard load times.</p>
           </div>
 
           <div class="project-footer">
@@ -793,17 +724,103 @@
               
               <div class="proj-metric-item">
                 <div class="proj-metric-val">25-30% Faster</div>
-                <div class="proj-metric-lbl">Execution Time</div>
+                <div class="proj-metric-lbl">Dashboard Speed</div>
               </div>
               
               <div class="proj-metric-item">
-                <div class="proj-metric-val">50+ Objects</div>
-                <div class="proj-metric-lbl">Workloads Refactored</div>
+                <div class="proj-metric-val">Python Automated</div>
+                <div class="proj-metric-lbl">Output Handling</div>
               </div>
               
               <div class="proj-metric-item">
-                <div class="proj-metric-val">Athena &amp; Snowflake</div>
-                <div class="proj-metric-lbl">Platforms Tuned</div>
+                <div class="proj-metric-val">SQL Execution Plans</div>
+                <div class="proj-metric-lbl">Analysis</div>
+              </div>
+              
+            </div>
+
+            <div class="exp-tags">
+              
+              <span class="tag">SQL Stored Procedures</span>
+              
+              <span class="tag">Execution Plans</span>
+              
+              <span class="tag">Python</span>
+              
+              <span class="tag">T-SQL</span>
+              
+              <span class="tag">Query Profiling</span>
+              
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-card" data-category="Snowflake &amp; Warehousing">
+          <div>
+            <div class="project-category">Snowflake &amp; Warehousing</div>
+            <h3 class="project-title">Snowflake Automated SCD Type I &amp; II Platform</h3>
+            <div class="project-subtitle">Historical Data Tracking • MERGE Semantics • Audit Compliance</div>
+            <p class="project-desc">Designed and deployed an automated Slowly Changing Dimension (SCD Type I and II) framework on Snowflake for historical records across business teams. Implemented Snowflake MERGE logic, clustering keys, and audit timestamps, reducing manual maintenance effort by 90%.</p>
+          </div>
+
+          <div class="project-footer">
+            <div class="project-metrics-row">
+              
+              <div class="proj-metric-item">
+                <div class="proj-metric-val">-90% Reduced</div>
+                <div class="proj-metric-lbl">Manual Effort</div>
+              </div>
+              
+              <div class="proj-metric-item">
+                <div class="proj-metric-val">100% Verified</div>
+                <div class="proj-metric-lbl">Audit Traceability</div>
+              </div>
+              
+              <div class="proj-metric-item">
+                <div class="proj-metric-val">Snowflake</div>
+                <div class="proj-metric-lbl">Warehouse</div>
+              </div>
+              
+            </div>
+
+            <div class="exp-tags">
+              
+              <span class="tag">Snowflake SQL</span>
+              
+              <span class="tag">PySpark</span>
+              
+              <span class="tag">MERGE Logic</span>
+              
+              <span class="tag">Dimensional Modeling</span>
+              
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-card" data-category="AWS Data Engg">
+          <div>
+            <div class="project-category">AWS Data Engg</div>
+            <h3 class="project-title">Serverless S3 Lakehouse &amp; Athena Query Optimization</h3>
+            <div class="project-subtitle">Amazon S3 Data Lake • AWS Glue Catalog • Serverless Athena SQL</div>
+            <p class="project-desc">Engineered serverless analytics infrastructure over Amazon S3 using AWS Glue Data Catalog and AWS Athena. Implemented intelligent partition pruning strategies and columnar Parquet data structures, cutting query scan sizes and execution times by ~25-30%.</p>
+          </div>
+
+          <div class="project-footer">
+            <div class="project-metrics-row">
+              
+              <div class="proj-metric-item">
+                <div class="proj-metric-val">-25-30% Faster</div>
+                <div class="proj-metric-lbl">Query Latency</div>
+              </div>
+              
+              <div class="proj-metric-item">
+                <div class="proj-metric-val">AWS Athena</div>
+                <div class="proj-metric-lbl">Query Engine</div>
+              </div>
+              
+              <div class="proj-metric-item">
+                <div class="proj-metric-val">AWS Glue</div>
+                <div class="proj-metric-lbl">Data Catalog</div>
               </div>
               
             </div>
@@ -812,24 +829,24 @@
               
               <span class="tag">AWS Athena</span>
               
-              <span class="tag">Snowflake</span>
+              <span class="tag">Amazon S3</span>
               
-              <span class="tag">SQL Server</span>
+              <span class="tag">AWS Glue Catalog</span>
               
-              <span class="tag">Execution Plans</span>
+              <span class="tag">SQL</span>
               
-              <span class="tag">Clustering Keys</span>
+              <span class="tag">Parquet</span>
               
             </div>
           </div>
         </div>
         
-        <div class="project-card" data-category="Data Modeling">
+        <div class="project-card" data-category="Python Automation">
           <div>
-            <div class="project-category">Data Modeling</div>
-            <h3 class="project-title">Python API Cleansing &amp; Validation Pipeline</h3>
-            <div class="project-subtitle">Pre-Ingestion Data Sanitization &amp; Ingestion Quality Gate</div>
-            <p class="project-desc">Created modular Python automation micro-pipelines to ingest raw JSON responses from external REST APIs. Performs schema enforcement, anomaly pruning, null reconciliation, and deduplication prior to staging in Amazon S3 and Kinesis, raising data quality by 25% and reducing downstream ingestion errors to near zero.</p>
+            <div class="project-category">Python Automation</div>
+            <h3 class="project-title">Python Ingestion &amp; Automated Validation Pipelines</h3>
+            <div class="project-subtitle">Pre-Ingestion Cleansing • Boundary Verification • Automated Handling</div>
+            <p class="project-desc">Built modular Python data-handling pipelines to automate multi-source data extraction, cleansing, and schema validation before loading into lakehouse and warehouse storage. Validates boundary limits, prunes anomalies, and handles stored procedure outputs seamlessly.</p>
           </div>
 
           <div class="project-footer">
@@ -841,13 +858,13 @@
               </div>
               
               <div class="proj-metric-item">
-                <div class="proj-metric-val">Near Zero</div>
-                <div class="proj-metric-lbl">Ingestion Errors</div>
+                <div class="proj-metric-val">100% Python</div>
+                <div class="proj-metric-lbl">Automation</div>
               </div>
               
               <div class="proj-metric-item">
-                <div class="proj-metric-val">100% Scheduled</div>
-                <div class="proj-metric-lbl">Automation</div>
+                <div class="proj-metric-val">Near Zero</div>
+                <div class="proj-metric-lbl">Ingestion Errors</div>
               </div>
               
             </div>
@@ -856,15 +873,13 @@
               
               <span class="tag">Python</span>
               
-              <span class="tag">AWS S3</span>
+              <span class="tag">SQL</span>
               
-              <span class="tag">REST APIs</span>
+              <span class="tag">JSON Processing</span>
               
-              <span class="tag">Pandas</span>
+              <span class="tag">Data Cleansing</span>
               
-              <span class="tag">JSON Parsing</span>
-              
-              <span class="tag">Airflow</span>
+              <span class="tag">Automation</span>
               
             </div>
           </div>
@@ -893,38 +908,18 @@
         
         <div class="skill-category-card">
           <h3 class="category-title">
-            <span>AWS &amp; Big Data Streaming</span>
+            <span>AWS Data Engineering</span>
           </h3>
 
           <div class="skill-items-list">
             
             <div class="skill-item">
               <div class="skill-label-row">
-                <span class="skill-name highlight">AWS Athena (Serverless SQL Querying)</span>
-                <span class="skill-percent">94%</span>
-              </div>
-              <div class="skill-bar-track">
-                <div class="skill-bar-fill" style="width: 94%"></div>
-              </div>
-            </div>
-            
-            <div class="skill-item">
-              <div class="skill-label-row">
-                <span class="skill-name highlight">AWS Glue ETL (Serverless Spark &amp; Catalog)</span>
+                <span class="skill-name highlight">AWS Kinesis (Real-Time Event Streaming)</span>
                 <span class="skill-percent">92%</span>
               </div>
               <div class="skill-bar-track">
                 <div class="skill-bar-fill" style="width: 92%"></div>
-              </div>
-            </div>
-            
-            <div class="skill-item">
-              <div class="skill-label-row">
-                <span class="skill-name highlight">AWS Kinesis (Real-Time Streaming Data)</span>
-                <span class="skill-percent">90%</span>
-              </div>
-              <div class="skill-bar-track">
-                <div class="skill-bar-fill" style="width: 90%"></div>
               </div>
             </div>
             
@@ -940,7 +935,17 @@
             
             <div class="skill-item">
               <div class="skill-label-row">
-                <span class="skill-name ">AWS Glue Data Catalog &amp; Crawlers</span>
+                <span class="skill-name highlight">AWS Athena (Serverless SQL Querying)</span>
+                <span class="skill-percent">94%</span>
+              </div>
+              <div class="skill-bar-track">
+                <div class="skill-bar-fill" style="width: 94%"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-label-row">
+                <span class="skill-name highlight">AWS Glue ETL (Serverless Spark &amp; Data Catalog)</span>
                 <span class="skill-percent">90%</span>
               </div>
               <div class="skill-bar-track">
@@ -950,11 +955,11 @@
             
             <div class="skill-item">
               <div class="skill-label-row">
-                <span class="skill-name highlight">Real-Time Event Stream Ingestion</span>
-                <span class="skill-percent">90%</span>
+                <span class="skill-name highlight">Multi-Source Data Ingestion</span>
+                <span class="skill-percent">92%</span>
               </div>
               <div class="skill-bar-track">
-                <div class="skill-bar-fill" style="width: 90%"></div>
+                <div class="skill-bar-fill" style="width: 92%"></div>
               </div>
             </div>
             
@@ -970,7 +975,7 @@
             
             <div class="skill-item">
               <div class="skill-label-row">
-                <span class="skill-name highlight">Databricks (Lakehouse Architecture &amp; Clusters)</span>
+                <span class="skill-name highlight">Databricks (Lakehouse Architecture &amp; Compute Clusters)</span>
                 <span class="skill-percent">94%</span>
               </div>
               <div class="skill-bar-track">
@@ -990,21 +995,11 @@
             
             <div class="skill-item">
               <div class="skill-label-row">
-                <span class="skill-name highlight">Partitioning, Broadcast Joins &amp; Shuffling</span>
+                <span class="skill-name highlight">Performance Tuning (Partitioning, Broadcast Joins)</span>
                 <span class="skill-percent">90%</span>
               </div>
               <div class="skill-bar-track">
                 <div class="skill-bar-fill" style="width: 90%"></div>
-              </div>
-            </div>
-            
-            <div class="skill-item">
-              <div class="skill-label-row">
-                <span class="skill-name ">Delta Lake &amp; Parquet Formats</span>
-                <span class="skill-percent">88%</span>
-              </div>
-              <div class="skill-bar-track">
-                <div class="skill-bar-fill" style="width: 88%"></div>
               </div>
             </div>
             
@@ -1015,6 +1010,16 @@
               </div>
               <div class="skill-bar-track">
                 <div class="skill-bar-fill" style="width: 92%"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-label-row">
+                <span class="skill-name ">Delta Lake &amp; Parquet Formats</span>
+                <span class="skill-percent">88%</span>
+              </div>
+              <div class="skill-bar-track">
+                <div class="skill-bar-fill" style="width: 88%"></div>
               </div>
             </div>
             
@@ -1040,7 +1045,7 @@
             
             <div class="skill-item">
               <div class="skill-label-row">
-                <span class="skill-name highlight">Snowflake Virtual Warehouses &amp; Multi-Cluster</span>
+                <span class="skill-name highlight">Multi-Warehouse Management &amp; Team Compute Isolation</span>
                 <span class="skill-percent">95%</span>
               </div>
               <div class="skill-bar-track">
@@ -1050,7 +1055,7 @@
             
             <div class="skill-item">
               <div class="skill-label-row">
-                <span class="skill-name highlight">Clustering Keys &amp; Micro-partitions</span>
+                <span class="skill-name highlight">Clustering Keys &amp; Micro-Partitioning</span>
                 <span class="skill-percent">92%</span>
               </div>
               <div class="skill-bar-track">
@@ -1061,16 +1066,6 @@
             <div class="skill-item">
               <div class="skill-label-row">
                 <span class="skill-name highlight">SCD Type I &amp; Type II Automation</span>
-                <span class="skill-percent">95%</span>
-              </div>
-              <div class="skill-bar-track">
-                <div class="skill-bar-fill" style="width: 95%"></div>
-              </div>
-            </div>
-            
-            <div class="skill-item">
-              <div class="skill-label-row">
-                <span class="skill-name highlight">Dimensional Modeling (Star &amp; Snowflake Schema)</span>
                 <span class="skill-percent">94%</span>
               </div>
               <div class="skill-bar-track">
@@ -1080,11 +1075,11 @@
             
             <div class="skill-item">
               <div class="skill-label-row">
-                <span class="skill-name ">Snowflake External Stages &amp; Snowpipe</span>
-                <span class="skill-percent">90%</span>
+                <span class="skill-name highlight">Dimensional Modeling (Star &amp; Snowflake Schema)</span>
+                <span class="skill-percent">92%</span>
               </div>
               <div class="skill-bar-track">
-                <div class="skill-bar-fill" style="width: 90%"></div>
+                <div class="skill-bar-fill" style="width: 92%"></div>
               </div>
             </div>
             
@@ -1093,14 +1088,14 @@
         
         <div class="skill-category-card">
           <h3 class="category-title">
-            <span>Programming &amp; SQL Tuning</span>
+            <span>SQL &amp; Performance Tuning</span>
           </h3>
 
           <div class="skill-items-list">
             
             <div class="skill-item">
               <div class="skill-label-row">
-                <span class="skill-name highlight">SQL (Advanced CTEs, Windowing, Stored Procs)</span>
+                <span class="skill-name highlight">SQL (Advanced CTEs, Window Functions, Complex Joins)</span>
                 <span class="skill-percent">98%</span>
               </div>
               <div class="skill-bar-track">
@@ -1110,37 +1105,27 @@
             
             <div class="skill-item">
               <div class="skill-label-row">
-                <span class="skill-name highlight">Python (Data Pipelines, API Ingestion, Automation)</span>
-                <span class="skill-percent">92%</span>
+                <span class="skill-name highlight">SQL Stored Procedures &amp; Logic Optimization</span>
+                <span class="skill-percent">96%</span>
               </div>
               <div class="skill-bar-track">
-                <div class="skill-bar-fill" style="width: 92%"></div>
+                <div class="skill-bar-fill" style="width: 96%"></div>
               </div>
             </div>
             
             <div class="skill-item">
               <div class="skill-label-row">
-                <span class="skill-name highlight">Athena / Presto SQL Tuning</span>
-                <span class="skill-percent">92%</span>
+                <span class="skill-name highlight">Query Execution Plan Analysis &amp; Bottleneck Elimination</span>
+                <span class="skill-percent">95%</span>
               </div>
               <div class="skill-bar-track">
-                <div class="skill-bar-fill" style="width: 92%"></div>
+                <div class="skill-bar-fill" style="width: 95%"></div>
               </div>
             </div>
             
             <div class="skill-item">
               <div class="skill-label-row">
-                <span class="skill-name highlight">Snowflake SQL &amp; UDFs</span>
-                <span class="skill-percent">94%</span>
-              </div>
-              <div class="skill-bar-track">
-                <div class="skill-bar-fill" style="width: 94%"></div>
-              </div>
-            </div>
-            
-            <div class="skill-item">
-              <div class="skill-label-row">
-                <span class="skill-name highlight">Query Profiling &amp; Execution Plan Analysis</span>
+                <span class="skill-name highlight">Dashboard Query Performance Tuning</span>
                 <span class="skill-percent">94%</span>
               </div>
               <div class="skill-bar-track">
@@ -1163,24 +1148,64 @@
         
         <div class="skill-category-card">
           <h3 class="category-title">
-            <span>Azure (Foundational) &amp; Tools</span>
+            <span>Python &amp; Data Automation</span>
           </h3>
 
           <div class="skill-items-list">
             
             <div class="skill-item">
               <div class="skill-label-row">
-                <span class="skill-name ">Azure Storage Accounts (ADLS Gen2 / Blob)</span>
-                <span class="skill-percent">80%</span>
+                <span class="skill-name highlight">Python (Data Pipelines, Ingestion &amp; Automation)</span>
+                <span class="skill-percent">94%</span>
               </div>
               <div class="skill-bar-track">
-                <div class="skill-bar-fill" style="width: 80%"></div>
+                <div class="skill-bar-fill" style="width: 94%"></div>
               </div>
             </div>
             
             <div class="skill-item">
               <div class="skill-label-row">
-                <span class="skill-name highlight">Connecting Azure Storage to Databricks</span>
+                <span class="skill-name highlight">Python SP Output Parsing &amp; Handling Scripts</span>
+                <span class="skill-percent">92%</span>
+              </div>
+              <div class="skill-bar-track">
+                <div class="skill-bar-fill" style="width: 92%"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-label-row">
+                <span class="skill-name highlight">Data Cleansing, Boundary Checks &amp; Schema Validation</span>
+                <span class="skill-percent">92%</span>
+              </div>
+              <div class="skill-bar-track">
+                <div class="skill-bar-fill" style="width: 92%"></div>
+              </div>
+            </div>
+            
+            <div class="skill-item">
+              <div class="skill-label-row">
+                <span class="skill-name ">REST API Ingestion &amp; JSON Transformation</span>
+                <span class="skill-percent">90%</span>
+              </div>
+              <div class="skill-bar-track">
+                <div class="skill-bar-fill" style="width: 90%"></div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+        <div class="skill-category-card">
+          <h3 class="category-title">
+            <span>Azure (Basics)</span>
+          </h3>
+
+          <div class="skill-items-list">
+            
+            <div class="skill-item">
+              <div class="skill-label-row">
+                <span class="skill-name highlight">Azure Storage Accounts (ADLS Gen2 / Blob Storage)</span>
                 <span class="skill-percent">84%</span>
               </div>
               <div class="skill-bar-track">
@@ -1190,7 +1215,7 @@
             
             <div class="skill-item">
               <div class="skill-label-row">
-                <span class="skill-name ">Apache Airflow (DAGs &amp; Scheduling)</span>
+                <span class="skill-name highlight">Connecting Azure Storage to Databricks</span>
                 <span class="skill-percent">88%</span>
               </div>
               <div class="skill-bar-track">
@@ -1200,31 +1225,11 @@
             
             <div class="skill-item">
               <div class="skill-label-row">
-                <span class="skill-name ">Data Validation &amp; Quality Reconciliation</span>
-                <span class="skill-percent">92%</span>
+                <span class="skill-name ">Hybrid Cloud Storage Mounts</span>
+                <span class="skill-percent">82%</span>
               </div>
               <div class="skill-bar-track">
-                <div class="skill-bar-fill" style="width: 92%"></div>
-              </div>
-            </div>
-            
-            <div class="skill-item">
-              <div class="skill-label-row">
-                <span class="skill-name ">Pentaho Data Integration (PDI)</span>
-                <span class="skill-percent">85%</span>
-              </div>
-              <div class="skill-bar-track">
-                <div class="skill-bar-fill" style="width: 85%"></div>
-              </div>
-            </div>
-            
-            <div class="skill-item">
-              <div class="skill-label-row">
-                <span class="skill-name ">Git, Documentation &amp; Stakeholder Collaboration</span>
-                <span class="skill-percent">92%</span>
-              </div>
-              <div class="skill-bar-track">
-                <div class="skill-bar-fill" style="width: 92%"></div>
+                <div class="skill-bar-fill" style="width: 82%"></div>
               </div>
             </div>
             

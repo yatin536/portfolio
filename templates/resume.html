@@ -250,14 +250,28 @@
         <div class="job-period">{{ exp.period }}</div>
       </div>
       <div class="job-sub">
-        <span>{{ exp.company }}</span>
+        <span>{{ exp.company }}{% if exp.client %} • Client: <strong>{{ exp.client }}</strong>{% endif %}</span>
         <span>{{ exp.location.split(',')[0] }}</span>
       </div>
-      <ul class="bullets">
-        {% for bullet in exp.highlights %}
-        <li>{{ bullet }}</li>
+      {% if exp.projects %}
+        {% for proj in exp.projects %}
+        <div class="proj-header" style="margin-top: 8px; margin-bottom: 4px;">
+          <strong style="font-size: 0.91rem; color: var(--heading);">{{ proj.name }}</strong>
+          {% if proj.desc %}<span style="font-size: 0.83rem; color: #475569;"> — {{ proj.desc }}</span>{% endif %}
+        </div>
+        <ul class="bullets">
+          {% for bullet in proj.highlights %}
+          <li>{{ bullet }}</li>
+          {% endfor %}
+        </ul>
         {% endfor %}
-      </ul>
+      {% else %}
+        <ul class="bullets">
+          {% for bullet in exp.highlights %}
+          <li>{{ bullet }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
     </div>
     {% endfor %}
 
@@ -274,24 +288,24 @@
     </div>
 
     <!-- Skills -->
-    <div class="section-title">Skills</div>
+    <div class="section-title">Skills & Technologies</div>
     <div class="skills-group">
-      <strong>AWS & Big Data:</strong> AWS Athena (Serverless SQL), AWS Glue ETL (Spark & Data Catalog), AWS Kinesis (Real-Time Streaming), Amazon S3 Data Lakes
+      <strong>AWS Data Engineering:</strong> AWS Kinesis (Real-Time Event Streaming), Amazon S3 (Data Lake Architecture & Partitioning), AWS Athena (Serverless SQL Querying), AWS Glue ETL (Serverless Spark & Data Catalog)
     </div>
     <div class="skills-group">
-      <strong>Databricks & PySpark:</strong> Databricks Lakehouse, Distributed PySpark (Spark SQL & DataFrames), Delta Lake, Storage Mounts & Cloud Integration
+      <strong>Databricks & PySpark:</strong> Databricks (Lakehouse Architecture & Compute Clusters), Distributed PySpark (Spark SQL & DataFrames), Performance Tuning (Partitioning, Broadcast Joins), Delta Lake
     </div>
     <div class="skills-group">
-      <strong>Data Warehousing & Modeling:</strong> Snowflake Virtual Warehouses, Clustering Keys, Micro-partitioning, SCD Type I & II Automation, Star & Snowflake Schema
+      <strong>Snowflake & Data Warehousing:</strong> Snowflake Cloud Platform, Multi-Warehouse Management & Team Compute Isolation, Clustering Keys & Micro-Partitioning, SCD Type I & II Automation, Dimensional Modeling
     </div>
     <div class="skills-group">
-      <strong>Programming & SQL:</strong> Advanced SQL (CTEs, Window Functions, Query Optimization, Stored Procedures), Python (Data Pipelines, Automation, API Ingestion)
+      <strong>SQL & Performance Optimization:</strong> Advanced SQL (CTEs, Window Functions, Complex Joins), SQL Stored Procedures & Logic Optimization, Execution Plan Analysis & Bottleneck Elimination, MS SQL Server
     </div>
     <div class="skills-group">
-      <strong>Cloud (Azure Basics) & Tools:</strong> Azure Storage Accounts (ADLS Gen2 / Blob), Connecting Azure Storage to Databricks, Apache Airflow, Pentaho PDI, Git, Data Validation & Reconciliation
+      <strong>Python & Data Automation:</strong> Python (Data Pipelines, Ingestion & Automation Scripts), Stored Procedure Output Parsing & Handling, Data Cleansing, Boundary Checks & Schema Validation
     </div>
     <div class="skills-group">
-      <strong>Soft Skills:</strong> Client Communication, Technical Documentation, Cross-Functional Team Collaboration
+      <strong>Azure (Basics):</strong> Azure Storage Accounts (ADLS Gen2 / Blob Storage), Connecting Azure Storage to Databricks for Lakehouse Solutions
     </div>
   </div>
 

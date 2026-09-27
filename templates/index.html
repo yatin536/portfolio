@@ -174,35 +174,35 @@
               <span class="dot dot-yellow"></span>
               <span class="dot dot-green"></span>
             </div>
-            <div class="terminal-title">kinesis_databricks_pipeline.py</div>
+            <div class="terminal-title">ge_vernova_cashflow_kinesis.py</div>
             <div style="width: 30px"></div>
           </div>
           <div class="terminal-body">
-<pre><code><span class="c-com"># Production AWS Kinesis & Databricks PySpark Pipeline</span>
+<pre><code><span class="c-com"># GE Vernova Cash Flow Automation • AWS Data Engg</span>
 <span class="c-kw">from</span> pyspark.sql <span class="c-kw">import</span> SparkSession, functions <span class="c-kw">as</span> F
 
 <span class="c-var">spark</span> = SparkSession.builder \
-    .appName(<span class="c-str">"AWSKinesisDatabricksPipeline"</span>) \
+    .appName(<span class="c-str">"GE_Vernova_CashFlow_Engine"</span>) \
     .config(<span class="c-str">"spark.sql.shuffle.partitions"</span>, <span class="c-num">200</span>) \
     .getOrCreate()
 
-<span class="c-com"># 1. Ingest streaming delta from AWS Kinesis & S3 Data Lake</span>
+<span class="c-com"># 1. Ingest streaming financial events via AWS Kinesis</span>
 <span class="c-var">stream_df</span> = spark.readStream.format(<span class="c-str">"kinesis"</span>) \
-    .option(<span class="c-str">"streamName"</span>, <span class="c-str">"analytics-event-stream"</span>) \
+    .option(<span class="c-str">"streamName"</span>, <span class="c-str">"ge-vernova-cashflow-stream"</span>) \
     .option(<span class="c-str">"region"</span>, <span class="c-str">"us-east-1"</span>).load()
 
-<span class="c-com"># 2. Databricks PySpark distributed cleansing & Delta format</span>
+<span class="c-com"># 2. Stage into Amazon S3 Data Lake & PySpark reconciliation</span>
 <span class="c-var">curated_df</span> = stream_df \
-    .repartition(<span class="c-str">"partition_date"</span>) \
-    .withColumn(<span class="c-str">"eff_start_date"</span>, F.current_timestamp())
+    .repartition(<span class="c-str">"cashflow_date"</span>) \
+    .withColumn(<span class="c-str">"reconciled_at"</span>, F.current_timestamp())
 
-<span class="c-com"># 3. Micro-partition load into Snowflake & Athena catalog</span>
+<span class="c-com"># 3. Load into multi-team Snowflake warehouse & query via Athena</span>
 <span class="c-var">curated_df</span>.write.format(<span class="c-str">"snowflake"</span>) \
-    .option(<span class="c-str">"sfWarehouse"</span>, <span class="c-str">"ANALYTICS_WH_XL"</span>) \
-    .option(<span class="c-str">"clustering_key"</span>, <span class="c-str">"(region_id, event_date)"</span>) \
+    .option(<span class="c-str">"sfWarehouse"</span>, <span class="c-str">"FINANCE_CASHFLOW_WH"</span>) \
+    .option(<span class="c-str">"clustering_key"</span>, <span class="c-str">"(entity_id, cashflow_date)"</span>) \
     .mode(<span class="c-str">"append"</span>).save()
 
-<span class="c-fn">print</span>(<span class="c-str">"[SUCCESS] Real-time stream processed with 0 errors"</span>)</code></pre>
+<span class="c-fn">print</span>(<span class="c-str">"[SUCCESS] Real-time cash flow ingested to S3 Lake & Snowflake"</span>)</code></pre>
           </div>
         </div>
       </div>
@@ -332,11 +332,27 @@
 
             <p class="exp-summary">{{ exp.summary }}</p>
 
-            <ul class="exp-bullets">
-              {% for bullet in exp.highlights %}
-              <li>{{ bullet }}</li>
+            {% if exp.projects %}
+              {% for proj in exp.projects %}
+              <div class="exp-project-block" style="margin-top: 14px; margin-bottom: 8px;">
+                <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px; flex-wrap: wrap;">
+                  <strong style="color: var(--accent-cyan); font-size: 0.95rem;">{{ proj.name }}</strong>
+                  {% if proj.desc %}<span style="font-size: 0.82rem; color: var(--text-muted);">({{ proj.desc }})</span>{% endif %}
+                </div>
+                <ul class="exp-bullets">
+                  {% for bullet in proj.highlights %}
+                  <li>{{ bullet }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
               {% endfor %}
-            </ul>
+            {% else %}
+              <ul class="exp-bullets">
+                {% for bullet in exp.highlights %}
+                <li>{{ bullet }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
 
             <div class="exp-tags">
               {% for tag in exp.tags %}
@@ -367,11 +383,12 @@
       </p>
 
       <div class="projects-filter-bar">
-        <button class="filter-btn active" data-filter="all">All Disciplines</button>
-        <button class="filter-btn" data-filter="AWS & Streaming">AWS & Streaming</button>
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="AWS Data Engg">AWS Data Engg</button>
         <button class="filter-btn" data-filter="Databricks & PySpark">Databricks & PySpark</button>
-        <button class="filter-btn" data-filter="Data Modeling">Data Modeling</button>
         <button class="filter-btn" data-filter="SQL Optimization">SQL Optimization</button>
+        <button class="filter-btn" data-filter="Snowflake & Warehousing">Snowflake & Warehousing</button>
+        <button class="filter-btn" data-filter="Python Automation">Python Automation</button>
       </div>
 
       <div class="projects-grid">

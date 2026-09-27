@@ -23,11 +23,12 @@ function initTypingEffect() {
 
   const phrases = [
     "Senior Data Engineer",
-    "AWS Athena & Glue ETL Specialist",
-    "AWS Kinesis Real-Time Streaming",
-    "Databricks & PySpark Architect",
-    "Snowflake & High-Performance SQL",
-    "Automated SCD I & II Developer"
+    "GE Vernova • Agentic AI Cash Flow",
+    "AWS Data Engg (Kinesis, S3, Athena, Glue)",
+    "Databricks & PySpark Pipelines",
+    "Lazard Inc. • Multi-Warehouse Ingestion",
+    "SQL Optimization & Execution Plans",
+    "Snowflake • Automated SCD I & II"
   ];
 
   let phraseIdx = 0;
@@ -77,34 +78,34 @@ function initPipelineSimulator() {
 
   const stageData = [
     {
-      title: "01. Real-Time & Batch Ingestion",
-      desc: "Capturing real-time continuous events via AWS Kinesis Data Streams and ingesting batch data from REST APIs, databases, and Azure Storage Accounts into Amazon S3 raw staging layers.",
-      tech: "AWS Kinesis, Amazon S3, Azure Storage Accounts, REST APIs, Python",
+      title: "01. Real-Time & Multi-Source Ingestion",
+      desc: "Capturing real-time financial and event streams via AWS Kinesis Data Streams and ingesting multi-source data feeds into Amazon S3 centralized data lakes.",
+      tech: "AWS Kinesis, Amazon S3, Python Ingestion Scripts, REST APIs",
       metric: "Sub-second event ingestion & near-zero error rate"
     },
     {
-      title: "02. AWS Glue Catalog & Quality Gate",
-      desc: "Automated schema inference using AWS Glue Crawlers and Glue Data Catalog. Pre-ingestion Python validation gates prune malformed records and enforce schema compliance.",
-      tech: "AWS Glue Data Catalog, Python Profilers, Great Expectations logic",
+      title: "02. Schema Catalog & Quality Gate",
+      desc: "Automated schema inference using AWS Glue Data Catalog and Crawlers. Modular Python validation gates sanitize inputs, check boundaries, and enforce schema compliance.",
+      tech: "AWS Glue Data Catalog, Python Data Validation, Schema Enforcement",
       metric: "+25% Improvement in Source Data Quality"
     },
     {
       title: "03. Distributed Databricks & PySpark",
-      desc: "Executing distributed batch & incremental pipelines on Databricks clusters and AWS Glue ETL. Utilizes Delta Lake formats, memory-optimized joins, and automated SCD Type I & II processing.",
-      tech: "Databricks, PySpark, AWS Glue ETL, Delta Lake, Snowflake MERGE",
-      metric: "+30% Faster transformation runtime & 90% manual effort saved"
+      desc: "Executing high-performance PySpark transformations on Databricks clusters and AWS Glue ETL with custom partitioning, broadcast joins, and cloud storage mounts (Azure & S3).",
+      tech: "Databricks, PySpark, AWS Glue ETL, Delta Lake, Azure Storage Mounts",
+      metric: "+30% Faster transformation runtime & memory efficiency"
     },
     {
-      title: "04. Workflow Orchestration & Airflow DAGs",
-      desc: "Automating scheduled pipelines with Apache Airflow DAGs and cloud triggers. Configured with automated SLA tracking, exponential backoff retries, and real-time failure alerts.",
-      tech: "Apache Airflow, AWS EventBridge, Python, Git",
-      metric: "99.9% Pipeline Execution Uptime & Reliability"
+      title: "04. Multi-Warehouse Management & SCD Versioning",
+      desc: "Dedicated Snowflake virtual warehouses isolating compute for distinct business teams (Lazard Inc.), combined with automated SCD Type I & II tracking via MERGE logic.",
+      tech: "Snowflake Virtual Warehouses, Clustering Keys, MERGE Logic",
+      metric: "90% Reduction in manual tracking effort & zero team contention"
     },
     {
-      title: "05. Serverless Athena & Snowflake Serving",
-      desc: "Interactive serverless SQL querying over S3 data lakes with AWS Athena, coupled with micro-partitioned Snowflake virtual warehouses powering executive BI dashboards.",
-      tech: "AWS Athena, Snowflake Multi-Cluster, Star Schema, BI Dashboards",
-      metric: "95–99% Stakeholder reporting accuracy & -25% query latency"
+      title: "05. SQL Execution Plans & Fast Dashboards",
+      desc: "Refactored SQL Stored Procedures analyzed via execution plans (Student Housing), serverless Athena queries over S3, and Python SP output handlers delivering sub-second BI metrics.",
+      tech: "AWS Athena, SQL Stored Procedures, Execution Plans, Python Handlers",
+      metric: "25–30% Query latency reduction & sub-second dashboard refreshes"
     }
   ];
 
