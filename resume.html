@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yatin Kumar Singh - Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --heading: #0f172a;
+      --border: #cbd5e1;
+      --accent: #0284c7;
+      --bg: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: #f1f5f9;
+      color: var(--text);
+      line-height: 1.5;
+      padding: 40px 20px;
+    }
+
+    .resume-actions-bar {
+      max-width: 850px;
+      margin: 0 auto 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-print {
+      background: #0284c7;
+      color: #ffffff;
+    }
+    .btn-print:hover { background: #0369a1; }
+
+    .btn-back {
+      background: #ffffff;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+    }
+    .btn-back:hover { background: #f8fafc; }
+
+    .resume-sheet {
+      max-width: 850px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 50px 60px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    .header {
+      text-align: center;
+      border-bottom: 2px solid #0f172a;
+      padding-bottom: 16px;
+      margin-bottom: 20px;
+    }
+
+    .name {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--heading);
+      margin-bottom: 6px;
+    }
+
+    .contact-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .contact-row a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .contact-row a:hover {
+      color: var(--accent);
+    }
+
+    .section-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--heading);
+      border-bottom: 1.5px solid #0f172a;
+      padding-bottom: 4px;
+      margin-top: 22px;
+      margin-bottom: 12px;
+    }
+
+    .summary-text {
+      font-size: 0.92rem;
+      color: #334155;
+      line-height: 1.6;
+    }
+
+    .job-block {
+      margin-bottom: 18px;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+
+    .job-title {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--heading);
+    }
+
+    .job-period {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #334155;
+    }
+
+    .job-sub {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: #0369a1;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .bullets {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+
+    .bullets li {
+      font-size: 0.88rem;
+      color: #334155;
+      line-height: 1.55;
+      margin-bottom: 6px;
+    }
+
+    .skills-group {
+      margin-bottom: 8px;
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    .skills-group strong {
+      color: var(--heading);
+      font-weight: 700;
+    }
+
+    .edu-title {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--heading);
+    }
+
+    .edu-sub {
+      font-size: 0.88rem;
+      color: #334155;
+      margin-top: 2px;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+        padding: 0;
+      }
+      .resume-actions-bar {
+        display: none !important;
+      }
+      .resume-sheet {
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="resume-actions-bar">
+    <a href="index.html" class="btn btn-back">
+      ← Back to Portfolio Website
+    </a>
+    <button onclick="window.print()" class="btn btn-print">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 6 2 18 2 18 9"></polyline>
+        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+        <rect x="6" y="14" width="12" height="8"></rect>
+      </svg>
+      Print / Save as PDF
+    </button>
+  </div>
+
+  <div class="resume-sheet">
+    <div class="header">
+      <h1 class="name">Yatin Kumar Singh</h1>
+      <div class="contact-row">
+        <span>📍 Noida &amp; Gurugram, Uttar Pradesh, India</span>
+        <span>✉ <a href="mailto:yatin536@gmail.com">yatin536@gmail.com</a></span>
+        <span>📱 <a href="tel:+919068630131">+91 9068630131</a></span>
+        <span>🔗 <a href="https://www.linkedin.com/in/yatin-kumar-s-8691b2138" target="_blank">in/yatin-kumar-s-8691b2138</a></span>
+      </div>
+    </div>
+
+    <!-- Summary -->
+    <div class="section-title">Summary</div>
+    <p class="summary-text">Data Engineer with 3.5+ years of experience designing, building, and optimizing scalable data pipelines and analytics solutions. Strong expertise in AWS big data services (Athena, Glue ETL, Kinesis, S3), Databricks &amp; PySpark distributed processing, Snowflake data warehousing, and SQL optimization, enabling real-time streaming, high-throughput batch ETL, and reliable business intelligence.</p>
+
+    <!-- Experience -->
+    <div class="section-title">Experience</div>
+    
+    <div class="job-block">
+      <div class="job-header">
+        <div class="job-title">Sr. Data Engineer</div>
+        <div class="job-period">August 2026 - Present</div>
+      </div>
+      <div class="job-sub">
+        <span>Accenture</span>
+        <span>Gurugram</span>
+      </div>
+      <ul class="bullets">
+        
+        <li>Contributing to enterprise-scale cloud data engineering initiatives and modern analytical environments.</li>
+        
+        <li>Building and optimizing AWS-based data engineering workflows, including Amazon S3 data ingestion, AWS Glue ETL jobs, and interactive Athena querying.</li>
+        
+        <li>Developing distributed PySpark pipelines on Databricks for high-throughput batch transformations and stream enrichment.</li>
+        
+        <li>Architecting high-performance SQL and Python workflows for data querying, transformation, automated validation, and data-processing activities.</li>
+        
+        <li>Configuring cloud storage integrations, connecting Azure Storage Accounts to Databricks for unified lakehouse storage solutions.</li>
+        
+        <li>Strengthening production architectures across Snowflake virtual warehouses, clustering keys, AWS services, and modern big data ecosystems.</li>
+        
+        <li>Enforcing engineering best practices around Git version control, testing frameworks, comprehensive technical documentation, and cross-functional agile delivery.</li>
+        
+      </ul>
+    </div>
+    
+    <div class="job-block">
+      <div class="job-header">
+        <div class="job-title">Data Engineer</div>
+        <div class="job-period">December 2023 - August 2026</div>
+      </div>
+      <div class="job-sub">
+        <span>Syven Global Services Pvt. Ltd.</span>
+        <span>Noida</span>
+      </div>
+      <ul class="bullets">
+        
+        <li>Implemented real-time streaming data ingestion pipelines using AWS Kinesis, streaming event datasets reliably into Amazon S3 storage layers.</li>
+        
+        <li>Leveraged AWS Athena and Glue Data Catalog to execute ad-hoc and scheduled analytical queries directly over large S3 data lakes with sub-minute response times.</li>
+        
+        <li>Developed distributed PySpark pipelines on Databricks for processing large-scale structured and semi-structured datasets, utilizing custom partitioning, broadcast joins, and incremental processing to boost transformation performance by ~30%.</li>
+        
+        <li>Connected Azure Storage Accounts to Databricks to mount remote storage containers and support hybrid cloud data ingestion workflows.</li>
+        
+        <li>Designed and managed Snowflake data warehouses across multiple business domains, configuring purpose-fit virtual warehouses to isolate and accelerate analytical workloads.</li>
+        
+        <li>Implemented Snowflake clustering keys and query optimization techniques on massive multi-million row datasets, reducing query execution times by approximately 25%.</li>
+        
+        <li>Engineered automated Slowly Changing Dimension (SCD Type I and Type II) processing for millions of historical records, automating change data capture and slashing manual intervention by ~90%.</li>
+        
+        <li>Developed and optimized 50+ complex SQL queries, views, functions, stored procedures, and triggers, supporting reporting and analytical workloads for 20+ users.</li>
+        
+        <li>Authored modular Python scripts for API data cleansing, schema validation, and pruning, improving dataset quality by ~25% and reducing downstream ingestion errors to near zero.</li>
+        
+        <li>Built and maintained scheduled data workflows using Apache Airflow, ensuring high availability and reliable execution of recurring data-processing pipelines.</li>
+        
+        <li>Designed and delivered weekly, monthly, and yearly performance dashboards using advanced dimensional modeling, supporting 10+ stakeholders with 95–99% reporting accuracy.</li>
+        
+      </ul>
+    </div>
+    
+    <div class="job-block">
+      <div class="job-header">
+        <div class="job-title">Graduate Engineer Trainee</div>
+        <div class="job-period">November 2022 - December 2023</div>
+      </div>
+      <div class="job-sub">
+        <span>Acidaes Solutions Pvt. Ltd.</span>
+        <span>Noida</span>
+      </div>
+      <ul class="bullets">
+        
+        <li>Engineered and optimized Microsoft SQL Server queries, stored procedures, Common Table Expressions (CTEs), views, and database objects, lifting query performance by up to 30% across reporting and application workloads.</li>
+        
+        <li>Optimized resource-heavy SQL workloads using CTEs, correlated subqueries, selective indexing, and filtering techniques, reducing execution times by ~25% for high-frequency queries.</li>
+        
+        <li>Created Python automation scripts for data cleansing, validation, and format normalization, reducing manual data-handling workloads by approximately 15%.</li>
+        
+        <li>Developed and maintained Pentaho Data Integration (PDI) ETL workflows integrating data from CSV, Excel, flat files, and relational databases, improving end-to-end processing efficiency by ~40%.</li>
+        
+        <li>Conducted rigorous data profiling, boundary testing, and reconciliation checks across source datasets, safeguarding near-perfect data accuracy for analytics consumers.</li>
+        
+        <li>Configured dynamic parameters, filters, and aggregations for analytical reporting layers, enhancing report usability and boosting stakeholder satisfaction by ~20%.</li>
+        
+      </ul>
+    </div>
+    
+
+    <!-- Education -->
+    <div class="section-title">Education</div>
+    <div class="job-block">
+      <div class="job-header">
+        <div class="edu-title">B.Tech, Computer Science &amp; Engineering</div>
+        <div class="job-period">2022</div>
+      </div>
+      <div class="edu-sub">
+        JECRC UNIVERSITY • Jaipur, RAJASTHAN • CGPA: 8.5 CGPA
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="section-title">Skills</div>
+    <div class="skills-group">
+      <strong>AWS & Big Data:</strong> AWS Athena (Serverless SQL), AWS Glue ETL (Spark & Data Catalog), AWS Kinesis (Real-Time Streaming), Amazon S3 Data Lakes
+    </div>
+    <div class="skills-group">
+      <strong>Databricks & PySpark:</strong> Databricks Lakehouse, Distributed PySpark (Spark SQL & DataFrames), Delta Lake, Storage Mounts & Cloud Integration
+    </div>
+    <div class="skills-group">
+      <strong>Data Warehousing & Modeling:</strong> Snowflake Virtual Warehouses, Clustering Keys, Micro-partitioning, SCD Type I & II Automation, Star & Snowflake Schema
+    </div>
+    <div class="skills-group">
+      <strong>Programming & SQL:</strong> Advanced SQL (CTEs, Window Functions, Query Optimization, Stored Procedures), Python (Data Pipelines, Automation, API Ingestion)
+    </div>
+    <div class="skills-group">
+      <strong>Cloud (Azure Basics) & Tools:</strong> Azure Storage Accounts (ADLS Gen2 / Blob), Connecting Azure Storage to Databricks, Apache Airflow, Pentaho PDI, Git, Data Validation & Reconciliation
+    </div>
+    <div class="skills-group">
+      <strong>Soft Skills:</strong> Client Communication, Technical Documentation, Cross-Functional Team Collaboration
+    </div>
+  </div>
+
+</body>
+</html>

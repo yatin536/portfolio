@@ -40,14 +40,18 @@ def build():
     rendered_index = index_template.render(context)
     with open(os.path.join(dist_dir, 'index.html'), 'w', encoding='utf-8') as f:
         f.write(rendered_index)
-    print("Rendered dist/index.html")
+    with open(os.path.join(base_dir, 'index.html'), 'w', encoding='utf-8') as f:
+        f.write(rendered_index)
+    print("Rendered index.html (root & dist)")
 
     # Render resume.html
     resume_template = env.get_template('resume.html')
     rendered_resume = resume_template.render(context)
     with open(os.path.join(dist_dir, 'resume.html'), 'w', encoding='utf-8') as f:
         f.write(rendered_resume)
-    print("Rendered dist/resume.html")
+    with open(os.path.join(base_dir, 'resume.html'), 'w', encoding='utf-8') as f:
+        f.write(rendered_resume)
+    print("Rendered resume.html (root & dist)")
 
     # Copy static assets
     dist_static = os.path.join(dist_dir, 'static')
