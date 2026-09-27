@@ -7,7 +7,7 @@ import json
 import os
 from datetime import datetime
 from flask import Flask, render_template, request, jsonify, send_file, make_response
-from data import PROFILE, SKILLS, EXPERIENCE, EDUCATION, PROJECTS, PIPELINE_STAGES
+from data import PROFILE, SKILLS, EXPERIENCE, EDUCATION, PROJECTS, PIPELINE_STAGES, SITE_ARCHITECTURE
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'yatin-portfolio-secret-key-2026'
@@ -39,6 +39,7 @@ def index():
         education=EDUCATION,
         projects=PROJECTS,
         pipeline_stages=PIPELINE_STAGES,
+        site_architecture=SITE_ARCHITECTURE,
         year=datetime.now().year
     )
 

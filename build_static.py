@@ -11,7 +11,7 @@ import os
 import shutil
 from datetime import datetime
 from jinja2 import Environment, FileSystemLoader
-from data import PROFILE, SKILLS, EXPERIENCE, EDUCATION, PROJECTS, PIPELINE_STAGES
+from data import PROFILE, SKILLS, EXPERIENCE, EDUCATION, PROJECTS, PIPELINE_STAGES, SITE_ARCHITECTURE
 
 def build():
     base_dir = os.path.dirname(os.path.abspath(__file__))
@@ -31,6 +31,7 @@ def build():
         'education': EDUCATION,
         'projects': PROJECTS,
         'pipeline_stages': PIPELINE_STAGES,
+        'site_architecture': SITE_ARCHITECTURE,
         'year': datetime.now().year,
         'is_static': True
     }
