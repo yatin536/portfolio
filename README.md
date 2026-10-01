@@ -1,104 +1,68 @@
-# Yatin Kumar Singh - Senior Data Engineer Portfolio Website
+# Yatin Kumar Singh — Senior Data Engineer Portfolio
+> **"Engineering data systems that scale."**
 
-A personal portfolio website and resume platform engineered for **Yatin Kumar Singh**, Senior Data Engineer, built using **Python**, **Flask**, **Jinja2**, and modern responsive web standards.
+The official personal engineering portfolio of **Yatin Kumar Singh**, Senior Data Engineer. Designed as a living, intelligent enterprise data infrastructure featuring real-time stream ingestion, lakehouse transformations, multi-warehouse compute isolation, and downstream AI integration.
 
----
-
-## 🌟 Key Highlights & Features
-
-- **Data-Centric Developer Aesthetic**: Sleek obsidian and electric cyan dark mode with subtle particle grid, glowing ambient orbs, and glassmorphism cards.
-- **Dynamic Typing Effect**: Cycles through core engineering identities (*Senior Data Engineer, AWS Athena & Glue ETL Specialist, AWS Kinesis Real-Time Streaming, Databricks & PySpark Architect, Snowflake & High-Performance SQL*).
-- **Interactive Data Pipeline Anatomy Simulator**: Clickable 5-stage interactive flow (`Ingest (Kinesis/S3) -> Catalog & Validate (Glue/Python) -> Transform (Databricks/Glue/PySpark) -> Orchestrate (Airflow) -> Serve (Athena/Snowflake)`) that dynamically showcases modern data engineering patterns.
-- **Impact Metrics Counter**: Showcases 3.5+ years experience, 50+ optimized SQL objects, 90% manual effort reduction via SCD I/II, 30% Databricks & PySpark speedup, and 95-99% reporting accuracy.
-- **Experience Timeline**: Career milestones at **Accenture**, **Syven Global Services**, and **Acidaes Solutions** with company chips, tags, and quantified bullet points.
-- **Featured Architectural Case Studies**: Real-Time AWS Kinesis Streaming Lakehouse, High-Performance Databricks & PySpark Engine (connecting Azure Storage & S3), Serverless AWS Glue ETL & Snowflake Warehouse, and SQL Optimization.
-- **Categorized Technical Arsenal**: Interactive skill bars across AWS Big Data (Athena, Glue, Kinesis, S3), Databricks & PySpark, Snowflake Data Warehousing, SQL Tuning, and foundational Azure Storage Accounts.
-- **Printable Resume View (`/resume`)**: Clean, standardized resume page matching your exact CV layout with one-click **"Print / Save as PDF"** support.
-- **One-Click Clipboard**: Instant copy buttons for Email (`yatin536@gmail.com`) and Phone (`+91 9068630131`) with toast notifications.
-- **Working Contact System**: Flask POST API `/api/contact` that logs messages to `inquiries.json` with seamless client fallback.
-- **Dark / Light Theme Toggle**: Persistent mode preference saved in local storage.
+**Live Deployment:** [https://yatin536.github.io/portfolio/](https://yatin536.github.io/portfolio/)  
+**Printable Resume:** [https://yatin536.github.io/portfolio/resume.html](https://yatin536.github.io/portfolio/resume.html)
 
 ---
 
-## 🚀 How to Run (Multiple Options)
+## 🌟 Key Architectural Features
 
-### Option 1: Live Flask Web Server (Recommended)
-This runs the full dynamic application with all API endpoints and contact message logging:
+- **Living 3D Data Infrastructure (Three.js WebGL):** Interactive spatial node network representing `Sources → AWS Kinesis → Amazon S3 Lake → Databricks & PySpark → Snowflake → Agentic AI`. Responds to cursor physics with spring damping.
+- **System Boot Sequence:** Full-screen terminal boot loader counting `000%` &rarr; `100%` with live pipeline telemetry.
+- **Adaptive Rem Grid (Lumora-Inspired):** Proportional viewport scaling across 4K, desktop, tablet, and mobile displays.
+- **Interactive Data Pipeline ("From Event &rarr; Insight"):** 6-stage architecture walkthrough with isometric visual mesh and metric inspector.
+- **Verified Career Graph:** Chronological systems engineering records across **Accenture** (Client: GE Vernova), **Syven Global Services** (Clients: Lazard Inc. & Student Housing), and **Acidaes Solutions**.
+- **Selected Systems Case Studies:** 3D tilt cards with hover-reveal micro-diagrams (query execution plan tuning, real-time streaming, and SCD Type I/II MERGE).
+- **Technical Deep-Dive ("Inside the System"):** Interactive tabbed modules with production-grade PySpark and SQL scripts.
+- **Verified Metrics Panel:** Scroll-driven count-up statistics (25–30% latency reduction, 90% manual maintenance reduction, 100% reconciliation accuracy).
+- **Printable Resume:** Dedicated `/resume.html` and clean `/resume` URL with one-click print styling.
+- **Interactive Contact Modal:** Glassmorphism dialog with form validation, keyboard navigation (`Escape` closes), and simulated submission.
 
+---
+
+## 🚀 Running Locally
+
+### Option 1: 1-Click Desktop Launcher
+Double-click `run_portfolio.bat` in this folder or `Launch-Portfolio.bat` on your Desktop. It starts the local server and automatically launches `http://localhost:8080`.
+
+### Option 2: Zero-Dependency Python Server
 ```bash
-# 1. Navigate to the portfolio folder
-cd c:\Users\yatin\Desktop\Workspace1\portfolio
+python server.py 8080
+```
+Open [http://localhost:8080](http://localhost:8080) in your browser.
 
-# 2. (Optional) Install requirements
+### Option 3: Dynamic Flask Web Server
+```bash
 pip install -r requirements.txt
-
-# 3. Launch Flask
 python app.py
 ```
-Open your browser and navigate to: **`http://localhost:5000`**
+Open [http://localhost:5000](http://localhost:5000) in your browser.
+
+### Option 4: Direct Browser View
+Double-click `index.html` to open directly in any modern browser without running a server.
 
 ---
 
-### Option 2: Zero-Dependency Python Server (No `pip install` needed!)
-Uses Python's built-in `http.server` standard library:
+## 📦 Building for Production
 
+Compile the standalone distribution into `./dist/`:
 ```bash
-cd c:\Users\yatin\Desktop\Workspace1\portfolio
-python server.py
-```
-Open your browser and navigate to: **`http://localhost:8000`**
-
----
-
-### Option 3: Static Site Build (Deploy to GitHub Pages / Vercel / Netlify)
-If you wish to host your portfolio on GitHub Pages or any static CDN for free:
-
-```bash
-cd c:\Users\yatin\Desktop\Workspace1\portfolio
 python build_static.py
 ```
-This renders the entire website into the **`dist/`** folder containing:
-- `dist/index.html`
-- `dist/resume.html`
-- `dist/static/css/style.css`
-- `dist/static/js/main.js`
-
-You can drag and drop the `dist/` folder directly to **Netlify**, **Vercel**, or push to GitHub Pages!
+The `./dist/` directory is ready to deploy to GitHub Pages, AWS S3, Vercel, or Netlify.
 
 ---
 
-## 📁 Project Structure
+## 🔄 CI/CD & Deployment
 
-```
-portfolio/
-├── app.py                  # Flask web server & REST API
-├── data.py                 # Central data source (all resume info, skills, projects)
-├── build_static.py         # Static site compiler (renders templates into dist/)
-├── server.py               # Pure Python built-in HTTP server runner
-├── test_app.py             # Automated route verification test suite
-├── requirements.txt        # Flask & Jinja2 dependencies
-├── inquiries.json          # Stores incoming messages from the contact form
-├── dist/                   # Compiled static website ready for free hosting
-│   ├── index.html
-│   ├── resume.html
-│   └── static/
-├── static/
-│   ├── css/
-│   │   └── style.css       # Custom styling, dark mode, animations & responsive design
-│   └── js/
-│       └── main.js         # Interactivity (typing, pipeline flow, filter, clipboard)
-└── templates/
-    ├── index.html          # Main portfolio Jinja2 template
-    └── resume.html         # Printable PDF-ready resume template
-```
+Every push to the `main` branch automatically triggers the GitHub Actions workflow (`.github/workflows/deploy.yml`), which compiles the static site and deploys it to **GitHub Pages**.
+
+Full migration and architecture documentation is available in **[`docs/PORTFOLIO_MIGRATION.md`](file:///c:/Users/yatin/Desktop/Workspace1/portfolio/docs/PORTFOLIO_MIGRATION.md)**.
 
 ---
 
-## ✏️ How to Update Your Resume or Portfolio
-
-All information (experience, job titles, metrics, skills, projects, contact info) is stored cleanly in a single Python file: **[`data.py`](file:///c:/Users/yatin/Desktop/Workspace1/portfolio/data.py)**.
-
-To update anything:
-1. Open `data.py`
-2. Edit or add new entries to `PROFILE`, `EXPERIENCE`, `SKILLS`, or `PROJECTS`
-3. Restart `python app.py` (or run `python build_static.py` if using static mode).
+## 📄 License & Copyright
+© 2026 Yatin Kumar Singh. All rights reserved.
