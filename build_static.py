@@ -52,7 +52,18 @@ def build():
         f.write(rendered_resume)
     with open(os.path.join(base_dir, 'resume.html'), 'w', encoding='utf-8') as f:
         f.write(rendered_resume)
-    print("Rendered resume.html (root & dist)")
+    
+    # Also support clean URL (/resume/)
+    resume_dir = os.path.join(dist_dir, 'resume')
+    os.makedirs(resume_dir, exist_ok=True)
+    with open(os.path.join(resume_dir, 'index.html'), 'w', encoding='utf-8') as f:
+        f.write(rendered_resume)
+    print("Rendered resume.html & /resume/index.html")
+
+    # Render 404.html for GitHub Pages fallback
+    with open(os.path.join(dist_dir, '404.html'), 'w', encoding='utf-8') as f:
+        f.write(rendered_index)
+    print("Created 404.html fallback for GitHub Pages")
 
     # Copy static assets
     dist_static = os.path.join(dist_dir, 'static')
